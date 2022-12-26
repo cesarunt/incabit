@@ -1,0 +1,105 @@
+{% extends "layout_ai.html" %}
+
+{% block content %}
+<!-- BLOCK CONTENT -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-title col-sm-12">
+                <h3 style="line-height: 25px;"><b>Configuración</b></h3>
+            </div>
+        </div>
+        <div class="box box-primary">
+            <div class="row">
+                <div class="col-md-12 col-lg-12" style="margin: 20px 0 10px;">
+                    <div class="card">
+                        <div class="card-header">General</div>
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate accept-charset="utf-8">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="use_GPU">Uso del GPU</label>
+                                        <input type="use_GPU" class="form-control" name="use_GPU" value="{{ use_GPU }}" required>
+                                        <!-- <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please enter your email address.</div> -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="limit_CPU">Límite del CPU</label>
+                                        <input type="limit_CPU" class="form-control" name="limit_CPU" value="{{ limit_CPU }}" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="nFrames">Rango, 30 frames (01 segundo)</label>
+                                        <input type="nFrames" class="form-control" name="nFrames" value="{{ nFrames }}" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="nSeconds">Duración del stream (segundos)</label>
+                                        <input type="nSeconds" class="form-control" name="nSeconds" value="{{ nSeconds }}" required>
+                                    </div>
+                                </div>
+                                <!-- <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12" style="margin: 10px 0;">
+                    <div class="card">
+                        <div class="card-header">Uso de Mascarillas</div>
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate accept-charset="utf-8">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="mtcnn_conf">Factor de confianza</label>
+                                        <input type="mtcnn_conf" class="form-control" name="mtcnn_conf" value="{{ mtcnn_conf }}" required>
+                                        <!-- <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please enter your email address.</div> -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="mtcnn_width">Ancho del recuadro</label>
+                                        <input type="mtcnn_width" class="form-control" name="mtcnn_width" value="{{ mtcnn_width }}" required>
+                                        <!-- <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please enter your email address.</div> -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="mtcnn_height">Alto del recuadro</label>
+                                        <input type="mtcnn_height" class="form-control" name="mtcnn_height" value="{{ mtcnn_height }}" required>
+                                    </div>
+                                </div>
+                                <!-- <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12" style="margin: 10px 0;">
+                    <div class="card">
+                        <div class="card-header">Analítica de Vídeo</div>
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate accept-charset="utf-8">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="yolo_conf">Factor de confianza</label>
+                                        <input type="yolo_conf" class="form-control" name="yolo_conf" value="{{ yolo_conf }}" required>
+                                        <!-- <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please enter your email address.</div> -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="yolo_thres">Factor de límite</label>
+                                        <input type="yolo_thres" class="form-control" name="yolo_thres" value="{{ yolo_thres }}" required>
+                                        <!-- <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please enter your email address.</div> -->
+                                    </div>
+                                </div>
+                                <!-- <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+{% endblock %}

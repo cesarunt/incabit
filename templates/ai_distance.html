@@ -1,0 +1,310 @@
+{% extends "layout_ai.html" %}
+
+{% block content %}
+<!-- BLOCK CONTENT -->
+<div class="content">
+    <div class="container-fluid">
+    {% if active %}
+    <div class="row">
+        <div class="page-title col-sm-12" style="width: 90%;">
+            <div class="analytics-subtitle text-left">
+                <a href="{{ url_for('ai_healthy') }}"><span>Analíticas > Salud</span></a>
+                <h4><b>Distanciamiento Social &nbsp;>&nbsp; demo</b></h4>
+            </div>
+        </div>
+    </div>
+        <div class="box box-primary-apps">
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin: 50px 0; font-size:0.9em;">
+                    <p style="color: #006ED4;">El servidor esta procesando</p>
+                    <img src="{{ url_for('static', filename='images/ai_service/process_server.gif') }}" style="width: 250px; height: 250px;">                    
+                    <p style="color: #000;">Esperar 60 segundos y actualizar este sitio web</p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <!-- START .... Content Processing -->
+        <div class="row">
+            <div class="page-title col-sm-8" style="width: 70%;">
+                <div class="analytics-subtitle text-left">
+                    <a href="{{ url_for('ai_healthy') }}"><span>Analíticas > Salud</span></a>
+                    <h5><b>Distanciamiento Social </b></h5>
+                </div>
+            </div>
+            <div class="page-title col-sm-4 text-right" style="width: 30%; margin: auto 0;">
+                {% if mask_streamOut or mask_videoOut %}
+                    {% include "ai_process_icon.html" %}
+                {% else %}
+                <img src="{{ url_for('static', filename='images/ai_service/social_distance.png') }}" style="width: 50px; height: 50px;">
+                {% endif %}
+            </div>
+        </div>
+        <div class="box box-primary-apps">
+            <div class="box-body">
+                <!-- Head: Imagen Video Streaming -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_image }}" id="image-tab" data-toggle="tab" href="#image" role="tab" aria-controls="image" aria-selected="true">Imagen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_video }}" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Vídeo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ active_stream }}" id="stream-tab" data-toggle="tab" href="#stream" role="tab" aria-controls="stream" aria-selected="false">Streaming</a>
+                    </li>
+                </ul>
+                <!-- Head Content -->
+                <div class="tab-content" id="myTabContent">
+                    <!-- Image Tab Content -->
+                    <div class="tab-pane fade {{ active_image }}" id="image" role="tabpanel" aria-labelledby="image-tab">
+                        {% if not mask_imageOut %}
+                        <div class="row">
+                            <!-- <form method="POST" action="" enctype="multipart/form-data" style="width: 100%; display: inline;"> -->
+                                <div class="col-md-12">
+                                    <div class="form-group mb-3">
+                                        <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="file_image" id="file_image" accept="image/*" oninput="input_image_file();">
+                                        <label id="file_image_label" class="custom-file-label" for="image">Seleccionar imagen</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3 text-center">
+                                        <!-- Buttons at start -->
+                                        <button onclick="ai_mask_uploadImage('{{ request.url }}');" id="uploadImage_btn" class="btn btn-primary" type="submit">
+                                            Cargar imagen
+                                        </button>
+                                        <!-- Buttons on start uploading -->
+                                        <button class="btn btn-primary d-none" id="loadingImage_btn" type="button" disabled>
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Cargando...
+                                        </button>
+                                        <!-- Buttons on finish uploading -->
+                                        <form method="POST" action="action_processImage" enctype="multipart/form-data">
+                                            <input type="hidden" name="media_image" id="media_image" value="image" />
+                                            <input type="hidden" name="service_image" id="service_image" value="ai_distance" />
+                                            <button class="btn btn-secondary d-none" type="button" id="cancelImage_btn">Cancelar</button>
+                                            <button class="btn btn-success d-none" id="processImage_btn" onclick="ai_clicImageProcess()" type="submit">
+                                                <i class="fas fa-play"></i> &nbsp;Procesar
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div id="processImage_wrapper" class="text-center d-none">
+                                        <img src="{{ url_for('static', filename='images/ai_service/process.gif') }}" style="width: 50px; height: 50px;">
+                                        <p style="margin:0 auto;">
+                                            <small style="color:gray;" lass="text-muted">procesando imagen</small>
+                                        </p>
+                                    </div>
+                                    <div id="progressImage_wrapper" class="d-none">
+                                        <label id="progressImage_status"></label>
+                                        <div class="progress mb-3">
+                                            <div id="progressImage" class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div id="alertImage_wrapper">
+                                        {% if mask_imageAlert %}
+                                        <div id="alertImage" class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 15px; line-height: 15px;">
+                                            <span>{{ mask_imageAlert }}</span>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        {% else %}
+                                        <div id="alertImage" class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 15px; line-height: 15px;">
+                                            <small>* Distancia óptima entre la cámara y las personas: 10 a 20 mts</small>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            <!-- </form> -->
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 0;">
+                                {% if mask_imageOut %}
+                                <div class="card-footer text-center" style="padding: 0;">
+                                    <img class="card-img-top" src="{{ mask_imageOut }}" style="border: 1px solid #F55; margin: 0 auto;">
+                                    <form method="POST" action="ai_save_image" enctype="multipart/form-data">
+                                        <input type="hidden" name="down_image" id="down_image" value="{{ mask_imageOut }}" />
+                                        <p style="text-align: center; margin: 15px 0 0 0;">
+                                            <a href="{{ url_for('ai_close_image', source='ai_distance') }}" class="btn btn-secondary">Cerrar</a>
+                                            <button class="btn btn-primary" id="saveImage_btn" type="submit">Guardar</button>
+                                        </p>
+                                    </form>
+                                </div>
+                                {% else %}
+                                <div class="card-footer text-center" style="margin-top: 15px; padding: 50px 0 40px;">
+                                    <div class="icon-big text-center">
+                                        <p>
+                                            <span class="fa fa-file-image gray" style="font-size:6em; margin: 10px; opacity: 60%;"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video Tab Content -->
+                    <div class="tab-pane fade {{ active_video }}" id="video" role="tabpanel" aria-labelledby="video-tab">
+                        {% if not mask_videoOut %}
+                        <div class="row">
+                            <!-- <form method="POST" action="" enctype="multipart/form-data" style="width: 100%; display: inline;"> -->
+                            <div class="col-md-12">
+                                <!-- <div class="mb-3 mt-3"> -->
+                                    <div class="form-group mb-3">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="file_video" id="file_video" accept="video/*" oninput="input_video_file();">
+                                            <label id="file_video_label" class="custom-file-label" for="video">Seleccionar vídeo</label>
+                                        </div>
+                                        <input type="hidden" name="analytic_selected" id="analytic_selected" value="" />
+                                    </div>
+                                    <div class="form-group mb-3 text-center">
+                                        <!-- Buttons at start -->
+                                        <button onclick="ai_mask_uploadVideo('{{ request.url }}');" id="uploadVideo_btn" class="btn btn-primary" type="submit">
+                                            Cargar vídeo
+                                        </button>
+                                        <!-- Buttons on start uploading -->
+                                        <button class="btn btn-primary d-none" id="loadingVideo_btn" type="button" disabled>
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Cargando...
+                                        </button>
+                                        <button class="btn btn-secondary d-none" type="button" id="cancelupVideo_btn">Cancelar Carga</button>
+                                        <!-- Buttons on finish uploading -->
+                                        <form method="POST" action="action_processVideo" enctype="multipart/form-data">
+                                            <input type="hidden" name="media_video" id="media_video" value="video" />
+                                            <input type="hidden" name="service_video" id="service_video" value="ai_distance" />
+                                            <button class="btn btn-secondary d-none" type="button" id="cancelVideo_btn">Cancelar</button>
+                                            <button class="btn btn-success d-none" id="processVideo_btn" onclick="clicVideoProcess()" type="submit">
+                                                <i class="fas fa-play"></i> &nbsp;Procesar
+                                            </button>
+                                        </form>
+                                    </div>
+                                <!-- </div> -->
+                                <div id="processVideo_wrapper" class="text-center d-none">
+                                    <img src="{{ url_for('static', filename='images/ai_service/process.gif') }}" style="width: 50px; height: 50px;">
+                                    <p style="margin:0 auto;">
+                                        <small style="color:gray;" lass="text-muted">conectando video</small>
+                                    </p>
+                                </div>
+                                <div id="progressVideo_wrapper" class="d-none">
+                                    <label id="progressVideo_status"></label>
+                                    <div class="progress mb-3">
+                                        <div id="progressVideo" class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                        
+                                <div id="alertVideo_wrapper">
+                                    {% if mask_videoAlert %}
+                                    <div id="alertVideo" class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 15px; line-height: 15px;">
+                                        <span>{{ mask_videoAlert }}</span>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    {% else %}
+                                        <div id="alertVideo" class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 15px; line-height: 15px;">
+                                            <small>* Tamaño máximo del vídeo: 100 Mb</small><br>
+                                            <small>* Se visualizará los primeros 30 segundos del vídeo</small><br>
+                                            <small>* Distancia óptima entre la cámara y las personas: 10 a 20 mts</small>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 0;">
+                                {% if mask_videoOut %}
+                                <div class="card-footer text-center" style="padding: 0;">
+                                    <img class="card-img-top" src="{{ url_for('ai_distance_stream') }}" style="border: 1px solid #F55; margin: 0 auto;">
+                                    <p style="text-align: center; margin: 10px 0 0 0;"><a href="{{ url_for('ai_close_stream', source='ai_distance') }}" class="btn btn-secondary">&nbsp; Cerrar &nbsp;</a></p>
+                                </div>
+                                {% else %}
+                                <div class="card-footer text-center" style="margin-top: 15px; padding: 50px 0 40px;">
+                                    <div class="icon-big text-center">
+                                        <p>
+                                            <span class="fa fa-file-video gray" style="font-size:6em; margin: 10px; opacity: 60%;"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Streaming Tab Content -->
+                    <div class="tab-pane fade {{ active_stream }}" id="stream" role="tabpanel" aria-labelledby="stream-tab">
+                        {% if not mask_streamOut %}
+                        <div class="row">
+                            <form method="POST" action="action_processStream" enctype="multipart/form-data" style="width: 100%; display: inline;">
+                            <input type="hidden" name="media_stream" id="media_stream" value="stream" />
+                            <input type="hidden" name="service_stream" id="service_stream" value="ai_distance" />
+                            <div class="col-md-12">
+                                <div class="form-group" style="width: 100%; margin: 0 auto; display: inline-block;">
+                                    <div class="custom-file" style="width: 45%;">
+                                        <p>
+                                            <!-- Combo Buttons - Stream -->
+                                            {% include "ai_select_cam.html" %}
+                                        </p>
+                                    </div>
+                                    <div class="custom-file" style="width: auto;">
+                                        <!-- Buttons at start -->
+                                        <button class="btn btn-success" id="processStream_btn" type="submit" style="width: auto;">
+                                            <i class="fas fa-play"></i> &nbsp;Stream
+                                        </button>
+                                        <!-- Buttons on start uploading -->
+                                        <button class="btn btn-primary d-none" id="loadingStream_btn" type="button" disabled>
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Procesando...
+                                        </button>
+                                    </div>
+                                    {% if mask_streamAlert %}
+                                    <div id="file_streamAlert" class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 15px;">
+                                        <span>{{ mask_streamAlert }}</span>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    {% else %}
+                                    <div id="file_streamAlert" class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 15px; line-height: 15px;">
+                                        <small>* Se visualizará los primeros 30 segundos del streaming</small><br>
+                                        <small>* Distancia óptima entre la cámara y las personas: 10 a 20 mts</small>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 0;">
+                                {% if mask_streamOut %}
+                                <div class="card-footer text-center" style="padding: 0;">
+                                    <img class="card-img-top" src="{{ url_for('ai_distance_stream') }}" style="border: 1px solid #F55; margin: 0 auto;">
+                                    <p style="text-align: center; margin: 10px 0 0 0;"><a href="{{ url_for('ai_close_stream', source='ai_distance') }}" class="btn btn-secondary">&nbsp; Cerrar &nbsp;</a></p>
+                                </div>
+                                {% else %}
+                                <div class="card-footer text-center" style="margin-top: 15px; padding: 50px 0 40px;">
+                                    <div class="icon-big text-center">
+                                        <p>
+                                            <span class="fa fa-tv gray" style="font-size:6em; margin: 10px; opacity: 60%;"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END .... Content Processing -->
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

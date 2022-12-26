@@ -1,0 +1,167 @@
+{% extends "layout_ai.html" %}
+
+{% block content %}
+<!-- BLOCK CONTENT -->
+<div class="content">
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-sm-12" style="margin: 0 auto;">
+                <p style="margin: 15px 0; text-align: justify;">
+                    La revolución tecnológica que protagoniza la Inteligencia Artificial (AI) genera numerosas oportunidades de desarrollo. Analizar gran cantidad de datos y aumentar la eficiencia de los procesos, son algunos beneficios de su implementación en el sector industrial y en la vida cotidiana. Actualmente muchas empresas ya incorporan AI para desarrollar soluciones en Seguridad, Transporte, Salud, etc.
+                </p>
+            </div>
+
+            <!-- SEGURIDAD   -->
+            <div class="col-sm-6 col-md-4 col-lg-4 mt-3" style="margin: 0 auto;">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-sm-12" style="width: 100%; margin: 0 auto;">
+                                <a href="{{ url_for('ai_safety') }}">
+                                    <div class="icon-big text-center" style="margin: 20px 42px; padding: 10px; border-radius: 15px; border-bottom: 2px solid #aaaaaa; border-left: 2px solid #aaaaaa; background-color: #0099FF;">
+                                        <i class="fas fa-city" style="color: white; font-size: 1.0em;"></i>
+                                    </div>
+                                </a>
+                                <div class="detail text-center">
+                                    <p>
+                                        <h4><b>Seguridad</b></h4>
+                                        <h6 style="color: gray;">(Ciudad Segura)</h6>
+                                    </p>
+                                </div>
+                                <hr>
+                            </div>
+                            <!-- Detección de Objetos -->
+                            <div class="col-sm-4" style="width: 30%;">
+                                <div class="detail text-right" style="font-size: 1.5em;">
+                                    <i class="fas fa-object-ungroup"></i>&nbsp;
+                                </div>
+                            </div>
+                            <div class="col-sm-8" style="width: 65%; line-height: 15px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    <span>Detección de Objetos</span>
+                                </div>
+                            </div>
+                            <!-- Búsqueda de Objetos -->
+                            <div class="col-sm-4" style="width: 30%;">
+                                <div class="detail text-right" style="font-size: 1.5em;">
+                                    <i class="fas fa-object-group"></i>&nbsp;
+                                </div>
+                            </div>
+                            <div class="col-sm-8" style="width: 65%; line-height: 15px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    <span>Búsqueda de Objetos</span>
+                                </div>
+                            </div>
+                            <!-- Detección de Merodeo -->
+                            <div class="col-sm-4" style="width: 30%;">
+                                <div class="detail text-right" style="font-size:1.5em;">
+                                    <i class="fas fa-draw-polygon"></i>&nbsp;
+                                </div>
+                            </div>
+                            <div class="col-sm-8" style="width: 65%; line-height: 15px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    <span>Merodeo de Personas</span>
+                                </div>
+                            </div>
+                            <!-- Conteo Objetos -->
+                            <div class="col-sm-4" style="width: 30%;">
+                                <div class="detail text-right" style="font-size: 1.3em;">
+                                    <i class="fas fa-female"></i>
+                                    <i class="fas fa-male"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8" style="width: 65%; line-height: 15px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    Conteo de Personas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSPORTE -->
+            <div class="col-sm-6 col-md-4 col-lg-4 mt-3" style="margin: 0 auto;">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-sm-11" style="width: 100%; margin: 0 auto;">
+                                <a href="{{ url_for('ai_transport') }}">
+                                    <div class="icon-big text-center" style="margin: 20px 40px; padding: 10px; border-radius: 15px; border-bottom: 2px solid #aaaaaa; border-left: 2px solid #aaaaaa; background-color: gold;">
+                                        <i class="fas fa-car" style="color: #333; font-size: 1.2em;"></i>
+                                    </div>
+                                </a>
+                                <div class="detail text-center">
+                                    <p>
+                                        <h4><b>Transporte</b></h4>
+                                        <h6 style="color: gray;">(LPR)</h6>
+                                    </p>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="col-sm-3" style="width: 30%;">
+                                <div class="detail text-right" style="font-size: 1.7em;">
+                                    <i class="black fas fa-pager"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" style="width: 65%; line-height: 20px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    <span>Reconocimiento de Placas Vehiculares</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SALUD -->
+            <div class="col-sm-6 col-md-4 col-lg-4 mt-3" style="margin: 0 auto;">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-sm-11" style="width: 100%; margin: 0 auto;">
+                                <a href="{{ url_for('ai_healthy') }}">
+                                    <div class="icon-big text-center" style="margin: 20px 40px; padding: 10px; border-radius: 15px; border-bottom: 2px solid #aaaaaa; border-left: 2px solid #aaaaaa; background-color: #FF3300;">
+                                        <i class="fas fa-clinic-medical" style="color: white; font-size: 1.1em;"></i>
+                                    </div>
+                                </a>
+                                <div class="detail text-center">
+                                    <p>
+                                        <h4><b>Salud</b></h4>
+                                        <h6 style="color: gray;">(Covid-19)</h6>
+                                    </p>
+                                </div>
+                                <hr>
+                            </div>
+                            <!-- Mask -->
+                            <div class="col-sm-3" style="width: 30%;">
+                                <div class="detail text-right" style="font-size: 1.5em;">
+                                    <i class="black fas fa-user-check"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" style="width: 65%; line-height: 15px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    <span>Uso de Mascarillas</span>
+                                </div>
+                            </div>
+                            <!-- Distanciamiento -->
+                            <div class="col-sm-3" style="width: 30%;">
+                                <div class="detail text-right" style="font-size: 1.5em;">
+                                    <i class="black fas fa-people-arrows"></i>&nbsp;
+                                </div>
+                            </div>
+                            <div class="col-sm-9" style="width: 65%; line-height: 15px; margin: 10px 0;">
+                                <div class="detail text-left">
+                                    <span>Distanciamiento Social</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

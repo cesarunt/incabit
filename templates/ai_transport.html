@@ -1,0 +1,35 @@
+{% extends "layout_ai.html" %}
+
+{% block content %}
+<!-- BLOCK CONTENT -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-title col-sm-8" style="width: 70%;">
+                <div class="analytics-subtitle text-left" style="font-size: 1.0em; line-height: 20px;">
+                    <span>Analíticas</span>
+                    <h5><b>Transporte - LPR</b></h5>
+                </div>
+            </div>
+        </div>
+        <div class="box box-primary-apps">
+            <div class="row">
+                <div class="col-sm-12" style="margin: 5px auto;">
+                    <p style="margin: 20px 25px; text-align: justify;">
+                    En Incabit hemos desarrollado un módulo de <b>reconocimiento de placas vehiculares (LPR)</b>. Basado en el uso de técnicas de AI es posible identificar la placa (imagen y texto) de todos los vehículos que transitan por un lugar donde se ha instalado una cámara.
+                    </p>
+                    <div class="video-responsive">
+                        <iframe 
+                        src="https://www.youtube.com/embed/DRaexwq_acY/?controls=1" frameborder="0" allowfullscreen="allowfullscreen"> 
+                        </iframe>
+                    </div>
+                    <p style="margin: 0 25px 20px; text-align: justify;">
+                    A partir de las imagenes captadas por las cámaras de la entidad, se realiza el procesamiento de las imagenes, aplicando algoritmos de binarización, filtrado y segmentación de bordes es posible detectar partes de la imagen que se asemejan a una placa vehicular, las cuales denominamos posibles placas. Posteriormente se procesan las imagenes de las posibles placas para indentificar si contienen un número alfa numérico correspondiente a un formato de placa vehicular. Finalmente extraemos el número de placa con su respectiva imagen.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

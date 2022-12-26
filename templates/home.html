@@ -1,0 +1,258 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- SECTION BODY, START -->
+
+{% include "slider.html" %}
+<!-- section ABOUT US ... -->
+<div class="section padding_layout_1">
+  <div class="container">
+      <a name="aboutus"></a>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="full">
+                  <div class="main_heading text_align_center">
+                      <h2>Somos una empresa líder</h2>
+                      <p class="large">El mejor servicio tecnológico, al mejor precio</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row about_blog">
+          <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">
+              <div class="full text_align_left">
+                  <h3>¿Que hacemos?</h3>
+                  <p class="large">Somos una empresa especializada en el desarrollo de soluciones tecnológicas 
+                  con 5 años de experiencia en el sector público y privado.</p>
+                  <br>
+                  <p class="large">Ofrecemos servicios relacionados con las Tecnologías de la Información (TI) 
+                  y estamos comprometidos con la investigación e innovación de nuevas tecnologías.</p>
+                  <br>
+                  <p class="large">Nuestros valores se basan en el compromiso total con la calidad, la comunicación y la ética profesional.</p>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 about_feature_img padding_right_0">
+              <div class="full text_align_center"> <img class="img-responsive"
+                      src="{{ url_for('static', filename='images/it_service/post-06.jpg') }}" alt="#" /> </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- end section -->
+
+<!-- section EXPERIENCED TEAM -->
+<div class="section padding_layout_1 light_silver" style="padding-top: 30px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="main_heading text_align_center">
+            <h2>Equipo experimentado</h2>
+            <p class="large">Contamos con profesionales altamente capacitados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="flex: 0 0 40%">
+      <div class="col-md-3" style="margin:0 auto;">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="{{ url_for('static', filename='images/it_service/team-member-0.jpg') }}" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Gianfranco Niquín</h4>
+            <br><br>
+            <div class="icon"> <img src="{{ url_for('static', filename='images/logos/icon-linux-256.png') }}"
+              alt="#" /> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6" style="margin:0 auto;">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="{{ url_for('static', filename='images/it_service/team-member-0.jpg') }}" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Cesar Peña</h4>
+            <br><br>
+            <div class="icon"> <img src="{{ url_for('static', filename='images/logos/icon-python-256.png') }}"
+              alt="#" /> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" style="margin:0 auto;">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="{{ url_for('static', filename='images/it_service/team-member-0.jpg') }}" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Pedro del Rosario</h4>
+            <br><br>
+            <div class="icon"> <img src="{{ url_for('static', filename='images/logos/icon-apple-256.png') }}"
+              alt="#" /> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" style="margin:0 auto;">
+        <div class="full team_blog_colum">
+          <div class="it_team_img"> <img class="img-responsive" src="{{ url_for('static', filename='images/it_service/team-member-0.jpg') }}" alt="#"> </div>
+          <div class="team_feature_head">
+            <h4>Javier Damian</h4>
+            <br><br>
+            <div class="icon"> <img src="{{ url_for('static', filename='images/logos/icon-terminal-256.png') }}"
+              alt="#" /> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section -->
+
+<!-- section SERVICES -->
+<div class="section padding_layout_1" style="padding:30px 0 10px 0;">
+  <div class="container">
+    <a name="services"></a>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="main_heading text_align_center">
+            <h2>Nuestros Servicios</h2>
+            <p class="large">Brindamos servicios rápidos, efectivos y personalizados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="full text_align_center margin_bottom_50">
+          <div class="center">
+            <div class="icon"> <img src="{{ url_for('static', filename='images/it_service/i0.png') }}" alt="#" /> </div>
+          </div>
+          <h4 class="theme_color">Inteligencia Artificial</h4>
+          <p>Desarrollamos las nuevas tecnologías de inteligencia artificial (machine learning y redes neuronales).</p>
+          <div class="bt_cont"> 
+            <a class="btn sqaure_bt" style="min-width:90px; height: 40px; line-height: 40px;" href="{{ url_for('ai_home') }}" target="_blank">&nbsp;&nbsp; VER &nbsp;&nbsp;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="full text_align_center margin_bottom_50">
+          <div class="center">
+            <div class="icon"> <img src="{{ url_for('static', filename='images/it_service/i1.png') }}" alt="#" /> </div>
+          </div>
+          <h4 class="theme_color">Desarrollo de software</h4>
+          <p>Creamos y personalizamos aplicaciones web y móviles de acto impacto.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="full text_align_center margin_bottom_50">
+          <div class="center">
+            <div class="icon"> <img src="{{ url_for('static', filename='images/it_service/i2.png') }}" alt="#" /> </div>
+          </div>
+          <h4 class="theme_color">Marketing y Publicidad</h4>
+          <p>Brindamos el servicio de marketing digital para las empresas que buscan posicionarse en el mercado.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="full text_align_center margin_bottom_50">
+          <div class="center">
+            <div class="icon"> <img src="{{ url_for('static', filename='images/it_service/i3.png') }}" alt="#" /> </div>
+          </div>
+          <h4 class="theme_color">Administración de Servidores</h4>
+          <p>Protegemos tu información mediante la gestión de la seguridad informática para tu empresa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section -->
+
+<!-- section CONTACT US -->
+<div class="section padding_layout_1 service_list" style="padding-top: 30px;">
+  <div class="container">
+    <a name="contactus"></a>
+    <div class="row">
+      <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+          <div class="full">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="main_heading text_align_center" style="margin-bottom: 25px;">
+                <h2>Contacta con Incabit</h2>
+              </div>
+            </div>
+            <div class="contact_information" style="margin-bottom: 25px;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
+                <div class="information_bottom text_align_center">
+                  <div class="icon_bottom"> <i class="fa fa-road" aria-hidden="true"></i> </div>
+                  <div class="info_cont">
+                    <h4>Los Olivos</h4>
+                    <p>Lima - Perú</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
+                <div class="information_bottom text_align_center">
+                  <div class="icon_bottom"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                  <div class="info_cont">
+                    <h4>+943002381</h4>
+                    <p>Lun-Sab 8:30am-5:30pm</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
+                <div class="information_bottom text_align_center">
+                  <div class="icon_bottom"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                  <div class="info_cont">
+                    <h4>cesar@incabit.com</h4>
+                    <p>24/7 Soporte en línea</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contant_form">
+              <h2 class="text_align_center">Enviar Mensaje</h2>
+              <div class="form_section">
+                <!-- <form class="form_contact" method="POST" action="action_sendMail" enctype="multipart/form-data"> -->
+                  <fieldset>
+                  <div class="row">
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" name="mail_username" id="mail_username" placeholder="Nombre (*)" value="" type="text">
+                    </div>
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" name="mail_website" id="mail_website" placeholder="URL de tu sitio web" type="text">
+                    </div>
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" name="mail_address" id="mail_address" placeholder="Correo electrónico (*)" value="" type="email">
+                    </div>
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" name="mail_phonenumber" id="mail_phonenumber" placeholder="Número telefónico (*)" value="" type="text">
+                    </div>
+                    <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <textarea class="field_custom" name="mail_message" id="mail_message" placeholder="Mensaje (*)"></textarea>
+                      <span lass="text-muted"><b>(*)</b> Campos obligatorios </span>
+                    </div>
+                    <div class="center">
+                      <button onclick="home_sendMail('{{ request.url }}');" id="sendMail_btn" class="btn btn-primary sqaure_bt" type="submit">Enviar</button>
+                    </div>
+                    <div id="alertMail_wrapper" class="center" style="margin: 15px 0;">
+                      
+                    </div>
+                    <div class="center">
+                      <div id="loadMail_img" class="col-md-12 text-center d-none" style="height: 100px;">
+                        <img src="{{ url_for('static', filename='images/loaders/sending_mail.gif') }}" style="width: 225px; height: 112px;">
+                        <p>enviando correo</p>
+                      </div>
+                    </div>
+                  </div>
+                  </fieldset>
+                <!-- </form> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section -->
+
+<!-- SECTION BODY, END -->
+{% endblock %}

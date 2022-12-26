@@ -1,0 +1,43 @@
+{% extends "layout_ai.html" %}
+
+{% block content %}
+<!-- BLOCK CONTENT -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-title col-sm-8" style="width: 70%;">
+                <div class="detail text-left" style="font-size: 1.0em; line-height: 25px;">
+                    <span>Analíticas</span>
+                    <h5><b>Seguridad</b></h5>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right" style="width: 30%; margin: 4px 0 0;">
+                <a href="{{ url_for('ai_analytics') }}">
+                    <div class="icon-big text-center" style="width: 75px; padding: 5px 0; border-radius: 5px; border: 1px solid #CCC; background-color: whitesmoke; display: inline-block; line-height: 15px;">
+                        <i style="color: #06F; font-size: 1.1em;" class="fas fa-play"></i><br>
+                        <small style="font-size: 0.7em;">Ver demo</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="box box-primary-apps">
+            <div class="row">
+                <!-- <div class="col-sm-12 text-center" style="margin: 5px 0 0;">
+                    <p><h5><b>Analíticas para la Seguridad</b></h5></p>
+                </div> -->
+                <div class="col-sm-12" style="margin: 5px auto; text-align: center;">
+                    <p style="margin: 20px 25px; text-align: justify;">
+                    En Incabit hemos implementado <b>analíticas de vídeo</b> para mejorar la seguridad en las principales calles de la ciudad. Mediante el uso de técnicas de AI es posible reconocer en tiempo real todo tipo de objetos, y a su vez identificar potenciales delitos.
+                    </p>
+                    <div class="video-responsive">
+                        <iframe 
+                        src="https://www.youtube.com/embed/snWU3HnrEmI/?controls=1" frameborder="0" allowfullscreen="allowfullscreen"> 
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

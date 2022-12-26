@@ -1,0 +1,62 @@
+{% extends "layout_ai.html" %}
+
+{% block content %}
+<!-- BLOCK CONTENT -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-title col-sm-8" style="width: 70%;">
+                <div class="detail text-left" style="font-size: 1.0em; line-height: 25px;">
+                    <span>Analíticas</span>
+                    <h5><b>Salud</b></h5>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right" style="width: 30%; margin: 4px 0 0;">
+                <a href="{{ url_for('ai_mask') }}">
+                    <div class="icon-big text-center" style="width: 75px; padding: 5px 0; border-radius: 5px; border: 1px solid #CCC; background-color: whitesmoke; display: inline-block; line-height: 15px;">
+                        <i style="color: #F30; font-size: 1.1em;" class="fas fa-play"></i><br>
+                        <small style="font-size: 0.7em;">Ver demo</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="box box-primary-apps">
+            <div class="row">
+                <!-- <div class="col-sm-12 text-center" style="margin: 5px 0 0;">
+                    <p><h5><b>Uso de Mascarillas y Distanciamiento Social</b></h5></p>
+                </div> -->
+                <div class="col-sm-12" style="margin: 5px auto; text-align: center;">
+                    <p style="margin: 20px 25px; text-align: justify;">
+                    <b>Incabit</b> ha desarrollado aplicaciones de inteligencia artificial (deep learning) para verificar el cumplimiento de las medidas sanitarias, como <b>el uso de mascarillas, y el distanciamiento social</b>.
+                    </p>
+                    <!-- <a href="{{ url_for('ai_mask') }}">
+                        <div class="icon-big text-center" style="width: 75px; height: 75px; margin: 10px 20px; padding: 10px; border-radius: 15px; border: 1px solid #CCC; background-color: whitesmoke; display: inline-block;">
+                            <i class="fas fa-users" style="color: #E33; font-size: 2.2em; text-align: center; margin: 12px auto;"></i>
+                            <div class="detail text-center" style="margin-top: 10px; line-height: 15px;">
+                                <small><b>Mask<br>Demo</b></small>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{ url_for('ai_distance') }}">
+                        <div class="icon-big text-center" style="width: 75px; height: 75px; margin: 10px 20px; padding: 10px; border-radius: 15px; border: 1px solid #CCC; background-color: whitesmoke; display: inline-block;">
+                            <i class="fas fa-people-arrows" style="color: #E33; font-size: 2.2em; text-align: center; margin: 12px auto;"></i>
+                            <div class="detail text-center" style="margin-top: 10px; line-height: 15px;">
+                                <small><b>Distance<br>Demo</b></small>
+                            </div>
+                        </div>
+                    </a> -->
+                    <div class="video-responsive">
+                        <iframe 
+                        src="https://www.youtube.com/embed/kCydQi5ioL4/?controls=1" frameborder="0" allowfullscreen="allowfullscreen"> 
+                        </iframe>
+                    </div>
+                    <p style="margin: 20px 25px 20px; text-align: justify;">
+                    Dadas las circunstancias actuales en las que vivimos a raíz de esta pandemia, y considerando la probable reapetura de los lugares de trabajo y otros espacios de reunión tras el cierre por el Covid-19, la ciudadanía debe seguir adoptando las medidas sanitarias necesarias para evitar la propagación del virus, siendo las más importantes el lavado de manos con agua y jabón, el uso de mascarillas, y el distanciamiento social.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

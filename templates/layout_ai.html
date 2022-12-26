@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head><script type="text/javascript" src="{{ url_for('static', filename='js/ga.js') }}"></script>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- site metas -->
+<title>Incabit AI - Inteligencia Artificial </title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- dashboard site css -->
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='dashboard/vendor/bootstrap4/css/bootstrap.min.css') }}"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard/css/master.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard/vendor/chartsjs/Chart.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard/vendor/flagiconcss3/css/flag-icon.min.css') }}">
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body id="default_theme">
+
+<!-- SECTION HEADER, START -->
+<!-- header -->
+<header id="default_header" class="header_style_1">
+  <!-- header bottom -->
+  <div class="header_bottom">
+    
+  </div>
+  <!-- header bottom end -->
+</header>
+<!-- end header -->
+<!-- SECTION HEADER, END -->
+
+<!-- SECTION BODY, START -->
+<div class="wrapper">
+  <nav id="sidebar" class="active">
+      <ul class="list-unstyled components text-secondary">
+          <li style="margin:0 0 10px 0; width: 100%;">
+              <a href="{{ url_for('home') }}" style="padding:0; background-color: white;">
+              <div class="sidebar-header center" style="min-height: 80px;">
+                  <!-- logo start -->
+                  <img height="72px" src="{{ url_for('static', filename='images/logos/logo_incabit_ai.jpg') }}" alt="logo" />
+                  <!-- logo end -->
+              </div>
+              </a>
+          </li>
+          <li style="margin:10px 0;">
+              <a href="{{ url_for('ai_home') }}"><i class="fas fa-home active"></i> INICIO</a>
+          </li>
+          <li style="margin:10px 0 0; padding-top: 10px; border-top: 1px solid #e6ecf5;">
+            <a href="#"><i class="fas fa-laptop-code"></i> ANALÍTICAS</a>
+          </li>
+          <li style="padding:5px 0;">
+            <a href="{{ url_for('ai_safety') }}">&nbsp;&nbsp;&nbsp;<i class="fas fa-city"></i> SEGURIDAD</a>
+          </li>
+          <li style="padding:5px 0;">
+            <a href="{{ url_for('ai_transport') }}">&nbsp;&nbsp;&nbsp;<i class="fas fa-car"></i> TRANSPORTE
+              <!-- <small style="color:red;">(Nuevo)</small> -->
+            </a>
+          </li>
+          <li style="padding:5px 0; padding-bottom: 10px; border-bottom: 1px solid #e6ecf5;">
+            <a href="{{ url_for('ai_healthy') }}">&nbsp;&nbsp;&nbsp;<i class="fas fa-clinic-medical"></i> SALUD</a>
+          </li>
+          <li style="margin:10px 0;">
+              <a href="{{ url_for('ai_setting') }}"><i class="fas fa-cog"></i> CONFIGURACIÓN</a>
+          </li>
+      </ul>
+  </nav>
+  <div id="body" class="active">
+      <nav class="navbar navbar-expand-lg navbar-white bg-white" style="min-height: 80px; padding: 10px;">
+          <button type="button" id="sidebarCollapse" style="min-width: 50px;" class="btn sqaure_bt btn-outline-secondary default-secondary-menu">
+              <i class="fas fa-bars"></i>
+          </button>
+          <span style="margin: 0 auto; padding: 10px 0 0 0;"><h4><b> INTELIGENCIA ARTIFICIAL</b></h4></span>
+      </nav>
+      {% block content %}
+
+      {% endblock %}
+  </div>
+</div>
+<!-- SECTION BODY, END -->
+
+<!-- footer -->
+<footer class="default_theme">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card" style="padding-top:15px; font-size: 0.9em; text-align: center; width: 100%; color:lightgray;">
+        <p>Incabit © Copyrights 2020 - Developed by Cesar Peña</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+<!-- js section -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<!-- menu js -->
+<script src="{{ url_for('static', filename='js/menumaker.js') }}"></script>
+<!-- wow animation -->
+<script src="{{ url_for('static', filename='js/wow.js') }}"></script>
+<!-- custom js -->
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<!-- dashboard site js -->
+<script src="{{ url_for('static', filename='dashboard/vendor/jquery3/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dashboard/vendor/bootstrap4/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dashboard/vendor/fontawesome5/js/solid.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dashboard/vendor/fontawesome5/js/fontawesome.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dashboard/vendor/chartsjs/Chart.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard-charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Uploads files -->
+<script src="{{ url_for('static', filename='js/upload-image.js') }}"></script>
+<script src="{{ url_for('static', filename='js/upload-video.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/upload-stream.js') }}"></script> -->
+</body>
+</html>

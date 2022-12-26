@@ -1,0 +1,5 @@
+# For linux
+wget https://pjreddie.com/media/files/yolov3.weights
+
+# For macos
+curl -0 https://pjreddie.com/media/files/yolov3.weights
